@@ -1,16 +1,84 @@
-# oauth_webview_logger
+# Robinhood OAuth Token Logger - iOS
 
-A new Flutter project.
+A Flutter iOS app that captures OAuth tokens from Robinhood's authentication flow using WebView.
 
-## Getting Started
+## Prerequisites
 
-This project is a starting point for a Flutter application.
+You need these installed on your MacBook:
 
-A few resources to get you started if this is your first Flutter project:
+- Xcode (latest version from App Store)
+- Flutter (`brew install flutter`)
+- CocoaPods (`sudo gem install cocoapods`)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Setup & Run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Install**
+
+```bash
+flutter pub get
+cd ios && pod install && cd ..
+```
+
+2. **Setup iOS Simulator**
+
+```bash
+# Open Simulator
+open -a Simulator
+
+# If Simulator isn't working:
+killall Simulator
+open -a Simulator
+```
+
+3. **Install iOS Runtime**
+
+- Open Xcode
+- Go to Xcode → Settings → Platforms
+- Download iOS 17.5 (or latest) runtime
+
+4. **Run the App**
+
+```bash
+flutter run
+```
+
+## Troubleshooting
+
+If you get build errors, try:
+
+```bash
+flutter clean
+flutter pub get
+cd ios && pod install && cd ..
+flutter run
+```
+
+### Common Issues
+
+**Simulator Won't Open:**
+
+```bash
+xcrun simctl erase all
+killall Simulator
+open -a Simulator
+```
+
+**Missing iOS Runtime:**
+
+- Open Xcode → Settings → Platforms
+- Download required iOS runtime
+
+**Xcode Path Issues:**
+
+```bash
+sudo xcode-select --reset
+sudo xcodebuild -license accept
+```
+
+## View Token Logs
+
+To see captured tokens:
+
+```bash
+flutter logs
+```
